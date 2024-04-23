@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/04/2024 às 22:05
+-- Tempo de geração: 24/04/2024 às 00:29
 -- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,6 +64,26 @@ INSERT INTO `medicamentos` (`idMedicamento`, `nomeMedicamento`, `dosMedicamento`
 (1, 'Paracetamol', 100, 1),
 (2, 'Amoxilina', 250, 1),
 (3, 'Ibuprofeno', 200, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `notas`
+--
+
+CREATE TABLE `notas` (
+  `idNota` int(11) NOT NULL,
+  `infoNota` text NOT NULL,
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `notas`
+--
+
+INSERT INTO `notas` (`idNota`, `infoNota`, `idUsuario`) VALUES
+(1, 'Ouve meu álbum no Spotify', 1),
+(2, 'spotify.com/os-charmosos-do-bairro', 1);
 
 -- --------------------------------------------------------
 
@@ -128,6 +148,12 @@ ALTER TABLE `medicamentos`
   ADD PRIMARY KEY (`idMedicamento`);
 
 --
+-- Índices de tabela `notas`
+--
+ALTER TABLE `notas`
+  ADD PRIMARY KEY (`idNota`);
+
+--
 -- Índices de tabela `problemas_saude`
 --
 ALTER TABLE `problemas_saude`
@@ -154,6 +180,12 @@ ALTER TABLE `contatos`
 --
 ALTER TABLE `medicamentos`
   MODIFY `idMedicamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `notas`
+--
+ALTER TABLE `notas`
+  MODIFY `idNota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `problemas_saude`
