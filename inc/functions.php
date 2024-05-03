@@ -61,7 +61,7 @@
                         $stmt = $conn->prepare("SELECT * FROM contatos WHERE idUsuario = :id");
                         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                         
-                           $stmt->execute();
+                        $stmt->execute();
                         $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         $qtdResultados = $stmt->rowCount();
